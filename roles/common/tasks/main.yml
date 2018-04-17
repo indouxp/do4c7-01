@@ -5,25 +5,15 @@
   tasks:
     - name: yum install tigervnc-server
       yum: name=tigervnc-server state=latest
-    - name: yum install libguestfs
-      yum: name=libguestfs state=latest
-    - name: yum install libvirt
-      yum: name=libvirt state=latest
-    - name: yum install libvirt-client
-      yum: name=libvirt-client state=latest
-#    - name: yum install python-virtinst
-#      yum: name=python-virtinst state=latest
-    - name: yum install qemu-kvm
-      yum: name=qemu-kvm state=latest
-    - name: yum install virt-manager
-      yum: name=virt-manager state=latest 
-    - name: yum install virt-top
-      yum: name=virt-top state=latest 
-    - name: yum install virt-viewer
-      yum: name=virt-viewer state=latest 
-    - name: yum install virt-who
-      yum: name=virt-who state=latest 
-    - name: yum install virt-install
-      yum: name=virt-install state=latest 
-    - name: yum install bridge-utils
-      yum: name=bridge-utils state=latest
+    - name: yum install curl
+      yum: name=curl state=latest
+    - name: yum group-install
+      yum: name="{{ item }}" state=present
+      with_items:
+        - "@Virtualization Client"
+        - "@Virtualization Platform"
+        - "@Virtualization Tools"
+    - name: libvirtd
+      command: systemctl restart libvirtd
+    - name: libvirtd
+      command: systemctl enable libvirtd
