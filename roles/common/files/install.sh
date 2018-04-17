@@ -6,7 +6,7 @@ virt-install\
   --connect=qemu:///system\
   --name=c73\
   --vcpus=1\
-  --ram=512\
+  --ram=256\
   --accelerate\
   --hvm\
   --disk path=/var/lib/libvirt/images/c73.img,size=10,format=qcow2\
