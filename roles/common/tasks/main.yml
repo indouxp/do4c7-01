@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+
+  tasks:
+    - name: yum install tigervnc-server
+      yum: name=tigervnc-server state=latest
+    - name: yum install git
+      yum: name=git state=latest
