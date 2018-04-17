@@ -13,7 +13,7 @@
         - "@Virtualization Client"
         - "@Virtualization Platform"
         - "@Virtualization Tools"
-    - name: libvirtd
+    - name: restart libvirtd
       command: systemctl restart libvirtd
-    - name: libvirtd
+    - name: enable libvirtd
       command: systemctl enable libvirtd
