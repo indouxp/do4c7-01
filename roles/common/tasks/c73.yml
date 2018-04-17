@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+
+  tasks:
+    - name: curl
+      command: curl -LO http://archive.kernel.org/centos-vault/7.3.1611/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso
+    - name: sha256sum
+      command: sha256sum CentOS-7-x86_64-Minimal-1611.iso
