@@ -5,5 +5,20 @@
   tasks:
     - name: curl
       command: curl -LO http://archive.kernel.org/centos-vault/7.3.1611/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso
+    - name: curl
+      command: cp -p CentOS-7-x86_64-Minimal-1611.iso /tmp
     - name: sha256sum
-      command: sha256sum CentOS-7-x86_64-Minimal-1611.iso
+      command: sha256sum /tmp/CentOS-7-x86_64-Minimal-1611.iso
+    - name: install.sh
+      copy: src=../files/install.sh dest=/root/install.sh
+#    - name: replace /etc/libvirt/qemu.conf
+#      replace: >-
+#        dest='/etc/libvirt/qemu.conf'
+#        regexp='#user = "root"'
+#        replace='user = "root"'
+#    - name: replace /etc/libvirt/qemu.conf
+#      replace: >-
+#        dest='/etc/libvirt/qemu.conf'
+#        regexp='#group = "root"'
+#        replace='group = "root"'
+
