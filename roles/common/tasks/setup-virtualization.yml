@@ -13,6 +13,7 @@
         - "@Virtualization Client"
         - "@Virtualization Platform"
         - "@Virtualization Tools"
+        - "@^gnome-desktop-environment"
     - name: restart libvirtd
       command: systemctl restart libvirtd
     - name: enable libvirtd
