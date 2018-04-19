@@ -3,22 +3,25 @@
 - hosts: all
 
   tasks:
-    - name: curl
+    - name: curlによるCentOS7.3 minimalの取得
       command: curl -LO http://archive.kernel.org/centos-vault/7.3.1611/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso creates=/tmp/CentOS-7-x86_64-Minimal-1611.iso
-    - name: cp
+    - name: qemuユーザーの制御できる/tmpへcp
       command: cp -p CentOS-7-x86_64-Minimal-1611.iso /tmp creates=/tmp/CentOS-7-x86_64-Minimal-1611.iso
+    - name: mkdir kvm
+      file:
+        dest: /root/kvm
+        state: directory
+    - name: chk-sha256sum.sh
+      copy:
+        src: ../files/chk-sha256sum.sh
+        dest: /root/kvm/chk-sha256sum.sh
+        mode: 0755
     - name: sha256sum
-      command: sha256sum /tmp/CentOS-7-x86_64-Minimal-1611.iso
+      command: /root/kvm/chk-sha256sum.sh /root/kvm/CentOS-7-x86_64-Minimal-1611.iso 27bd866242ee058b7a5754e83d8ee8403e216b93d130d800852a96f41c34d86a
+    - name: mv
+      command: mv CentOS-7-x86_64-Minimal-1611.iso /root/kvm creates=/root/kvm/CentOS-7-x86_64-Minimal-1611.iso
     - name: install.sh
-      copy: src=../files/install.sh dest=/root/install.sh
-#    - name: replace /etc/libvirt/qemu.conf
-#      replace: >-
-#        dest='/etc/libvirt/qemu.conf'
-#        regexp='#user = "root"'
-#        replace='user = "root"'
-#    - name: replace /etc/libvirt/qemu.conf
-#      replace: >-
-#        dest='/etc/libvirt/qemu.conf'
-#        regexp='#group = "root"'
-#        replace='group = "root"'
-
+      copy:
+        src: ../files/install.sh
+        dest: /root/kvm/install.sh
+        mode: 0755
