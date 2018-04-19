@@ -3,6 +3,7 @@
 - hosts: all
   become: no
 
+- import_playbook: roles/common/tasks/setup-init.yml
 - import_playbook: roles/common/tasks/setup-virtualization.yml
 #- import_playbook: roles/common/tasks/setup-network.yml
 - import_playbook: roles/common/tasks/c73.yml
