@@ -25,3 +25,13 @@
         src: ../files/install.sh
         dest: /root/kvm/install.sh
         mode: 0755
+    - name: host_only.xml
+      copy:
+        src: ../files/host_only.xml
+        dest: /root/kvm/host_only.xml
+        mode: 0644
+    - name: setup.sh
+      copy:
+        src: ../files/setup.sh
+        dest: /root/kvm/setup.sh
+        mode: 0644
