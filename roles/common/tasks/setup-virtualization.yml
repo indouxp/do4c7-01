@@ -15,7 +15,7 @@
     - name: enable libvirtd
       command: systemctl enable libvirtd
     - name: wget vagrant
-      command: wget https://releases.hashicorp.com/vagrant/2.0.3/vagrant_2.0.3_x86_64.rpm
+      command: wget https://releases.hashicorp.com/vagrant/2.0.3/vagrant_2.0.3_x86_64.rpm creates=./vagrant_2.0.3_x86_64.rpm
     - name: yum localinstall vagrant
       yum: 
         name: ./vagrant_2.0.3_x86_64.rpm
