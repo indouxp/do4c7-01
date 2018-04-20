@@ -5,3 +5,5 @@
   tasks:
     - name: yum install tigervnc-server
       yum: name=tigervnc-server state=latest
+    - name: yum install curl
+      yum: name=curl state=latest
