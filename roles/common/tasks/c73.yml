@@ -34,4 +34,4 @@
       copy:
         src: ../files/setup.sh
         dest: /root/kvm/setup.sh
-        mode: 0644
+        mode: 0755
