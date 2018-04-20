@@ -7,25 +7,25 @@
       command: curl -LO http://archive.kernel.org/centos-vault/7.3.1611/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso creates=/tmp/CentOS-7-x86_64-Minimal-1611.iso
     - name: qemuユーザーの制御できる/tmpへcp
       command: cp -p CentOS-7-x86_64-Minimal-1611.iso /tmp creates=/tmp/CentOS-7-x86_64-Minimal-1611.iso
-    - name: mkdir kvm
+    - name: mkdir kvm ワークディレクトリの作成
       file:
         dest: /root/kvm
         state: directory
-    - name: chk-sha256sum.sh
+    - name: chk-sha256sum.sh ファイルハッシュの確認
       copy:
         src: ../files/chk-sha256sum.sh
         dest: /root/kvm/chk-sha256sum.sh
         mode: 0755
-    - name: mv
+    - name: mv isoをkvmへ
       command: mv CentOS-7-x86_64-Minimal-1611.iso /root/kvm creates=/root/kvm/CentOS-7-x86_64-Minimal-1611.iso
-    - name: sha256sum
+    - name: sha256sum isoのチェック
       command: /root/kvm/chk-sha256sum.sh /root/kvm/CentOS-7-x86_64-Minimal-1611.iso 27bd866242ee058b7a5754e83d8ee8403e216b93d130d800852a96f41c34d86a
-    - name: install.sh
+    - name: install.shのコピー
       copy:
         src: ../files/install.sh
         dest: /root/kvm/install.sh
         mode: 0755
-    - name: host_only.xml
+    - name: host_only.xmlのコピー
       copy:
         src: ../files/host_only.xml
         dest: /root/kvm/host_only.xml
