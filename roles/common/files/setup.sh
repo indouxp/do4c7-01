@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -eu
 
 cat <<EOT
 https://qiita.com/knqyf263/items/6865d0a61a23cb359476
@@ -11,3 +12,21 @@ https://qiita.com/knqyf263/items/6865d0a61a23cb359476
 5. systemctl reboot
 6. ifconfig, brctl show
 EOT
+
+ifconfig
+
+brctl show
+
+if [ ! -e /etc/libvirt/qemu/networks/host_only.xml ]; then
+  cp -i host_only.xml /etc/libvirt/qemu/networks
+
+  virsh net-define host_only.xml
+
+  virsh net-edit host_only
+
+  virsh net-autostart host_only
+
+  systemctl reboot
+
+fi
+
