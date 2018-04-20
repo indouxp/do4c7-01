@@ -1,5 +1,8 @@
 #!/bin/sh
-
+#
+# REFERENCE:https://qiita.com/knqyf263/items/e47d77adad797eae98a0
+#
+#
 virt-install\
   --connect=qemu:///system\
   --name=c73\
