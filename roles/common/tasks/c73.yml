@@ -35,3 +35,9 @@
         src: ../files/setup.sh
         dest: /root/kvm/setup.sh
         mode: 0755
+    - name: get-c73-dvd.sh
+      copy:
+        src: ../files/get-c73-dvd.sh
+        dest: /root/kvm/get-c73-dvd.sh
+        mode: 0755
+
