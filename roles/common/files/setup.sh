@@ -28,6 +28,11 @@ if [ ! -e /etc/libvirt/qemu/networks/host_only.xml ]; then
 
   virsh net-autostart host_only
 
+  RED="\e[31m"
+  GREEN="\e[32m"
+  CLEAR="\e[0m"
+  echo -e ${RED:?}Reboot!${CLEAR:?} 
+
   systemctl reboot
 
 fi
