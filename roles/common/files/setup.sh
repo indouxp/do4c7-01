@@ -17,7 +17,9 @@ ifconfig
 
 brctl show
 
+# host_only.xmlが存在しない場合、カレントディレクトリのhost_only.xmlよりhost_onlyネットワークを作成する
 if [ ! -e /etc/libvirt/qemu/networks/host_only.xml ]; then
+
   cp -i host_only.xml /etc/libvirt/qemu/networks
 
   virsh net-define host_only.xml
