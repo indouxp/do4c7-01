@@ -1,4 +1,29 @@
 #!/bin/sh
+###############################################################################
+#
+# KVMでホストオンリーネットワークの作成
+#
+#ホスト側は、以下のようになる。
+#0 180427-011926 root@droplet-01:~:# LANG=C virsh net-list
+# Name                 State      Autostart     Persistent
+#----------------------------------------------------------
+# default              active     yes           yes
+# host_only            active     yes           yes
+#
+#0 180427-012100 root@droplet-01:~:# LANG=C virsh net-dumpxml host_only
+#<network>
+#  <name>host_only</name>
+#  <uuid>32314432-e0d9-4dde-8a20-1c8d7137bf31</uuid>
+#  <bridge name='host_only0' stp='on' delay='0'/>
+#  <mac address='52:54:00:a1:5c:b2'/>
+#  <ip address='192.168.9.1'>
+#  </ip>
+#</network>
+#
+#0 180427-012104 root@droplet-01:~:#
+#
+#
+###############################################################################
 
 set -eu
 
