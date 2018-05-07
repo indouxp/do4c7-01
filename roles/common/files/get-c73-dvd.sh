@@ -14,7 +14,7 @@ if [ ! -e /tmp/${ISO:?} ]; then
   cp ${ISO:?} /tmp
 fi
 
-# $B$&$^$/$$$C$F$$$J$$(B
+# うまくいっていない
 #virsh attach-disk ${GUEST_NAME:?} /tmp/${ISO:?} hdc --type cdrom --mode readonly --shareable
 #virsh attach-disk ${GUEST_NAME:?} /tmp/${ISO:?} hdc --type cdrom --shareable
 
