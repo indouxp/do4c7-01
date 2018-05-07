@@ -1,9 +1,9 @@
 #!/bin/sh
 ###############################################################################
 #
-# KVM$B$G%[%9%H%*%s%j!<%M%C%H%o!<%/$N:n@.(B
+# KVMでホストオンリーネットワークの作成
 #
-#$B%[%9%HB&$O!"0J2<$N$h$&$K$J$k!#(B
+#ホスト側は、以下のようになる。
 #0 180427-011926 root@droplet-01:~:# LANG=C virsh net-list
 # Name                 State      Autostart     Persistent
 #----------------------------------------------------------
@@ -42,7 +42,7 @@ ifconfig
 
 brctl show
 
-# host_only.xml$B$,B8:_$7$J$$>l9g!"%+%l%s%H%G%#%l%/%H%j$N(Bhost_only.xml$B$h$j(Bhost_only$B%M%C%H%o!<%/$r:n@.$9$k(B
+# host_only.xmlが存在しない場合、カレントディレクトリのhost_only.xmlよりhost_onlyネットワークを作成する
 if [ ! -e /etc/libvirt/qemu/networks/host_only.xml ]; then
 
   cp -i host_only.xml /etc/libvirt/qemu/networks
