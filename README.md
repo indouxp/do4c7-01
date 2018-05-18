@@ -2,7 +2,7 @@
 2018/04/17
 DigitalOcean for CentOS 7.3
 
-DigitalOceanのDroplet(CentOS7)上に、kvmをセットアップし、CentOS-7-x86_64-Minimal-1611.isoより、ブートする。
+DigitalOceanのDroplet(CentOS7)上に、kvmをセットアップし、CentOS-7-x86_64-Minimal-1611.isoより、ブートする環境を作る。
 
 run.sh: ansible-playbookコマンドの実行により、kvm用のパッケージをセットアップする。
 setup.sh: KVMでホストオンリーネットワークの作成
